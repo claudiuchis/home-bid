@@ -1,0 +1,40 @@
+version: '3.3'
+
+# declare volumes
+volumes:
+  vol_sql_bidder:
+
+services:
+
+  ##############################################
+  ## Build servers
+  ##############################################
+
+  # postgresql server
+  sql-bidder:
+    build:
+      context: .
+    image: sql-bidder
+    volumes:
+      - type: volume
+        source: vol_sql_bidder
+        target: /var/lib/postgresql/bidit
+    environment:
+      - POSTGRES_PASSWORD=rand0mna1l
+      - APP_USER=bidder
+      - APP_PASSWORD=l1ttlef1nger
+      - APP_DB=bidit
+    ports:
+    - "5432:5432"
+    # networks:
+    #   - localnet
+    restart: always
+
+# networks:
+#   localnet:
+#     driver: bridge
+    
+  ##################################
+  # End
+  ##################################
+
