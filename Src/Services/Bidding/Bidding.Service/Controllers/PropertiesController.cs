@@ -27,6 +27,13 @@ namespace HomeBid.Services.Bidding.Controllers
             return "value";
         }
 
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<BiddingProperty>>> Get()
+        {
+            var properties = await _biddingService.GetBiddingProperties();
+            return Ok(properties);
+        }
+
         // POST api/v1/properties
         [HttpPost]
         [ProducesResponseType((int)HttpStatusCode.OK)]

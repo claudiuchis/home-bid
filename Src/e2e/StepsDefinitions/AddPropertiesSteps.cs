@@ -12,17 +12,15 @@ namespace HomeBid.Specifications.StepsDefinitions
     [Binding]
     public class OpenBiddingSteps
     {
-        private BiddingDriver biddingDriver;
+        private PropertyDriver _propertyDriver;
+        private BiddingProperty _biddingProperty;
         private string propertyTitle;
         private string askingPrice;
-        public OpenBiddingSteps()
-        {
-            biddingDriver = new BiddingDriver();
-        }
 
         [Given(@"I chose to create a new property")]
         public void GivenIChoseToCreateANewProperty()
         {
+            _propertyDriver = new PropertyDriver();            
         }
 
         [Given(@"I entered title (.*)")]
@@ -40,46 +38,37 @@ namespace HomeBid.Specifications.StepsDefinitions
         [When(@"I send the data")]
         public void WhenISendTheData()
         {
-            var task = biddingDriver.AddBiddingProperty(propertyTitle, askingPrice);
+            var task = _propertyDriver.AddBiddingProperty(propertyTitle, askingPrice);
             task.Wait();
+            _biddingProperty = task.Result;
         }
 
         [Then(@"a property is added with these details")]
         public void ThenAPropertyIsAddedWithTheseDetails()
         {
-            var biddingProperty = biddingDriver.GetBiddingPropertyAdded();
-            Assert.NotNull(biddingProperty);
-            Assert.AreEqual(propertyTitle, biddingProperty.Title);
-            Assert.AreEqual(Convert.ToDecimal(askingPrice), biddingProperty.AskingPrice);
+            Assert.NotNull(_biddingProperty);
+            Assert.AreEqual(propertyTitle, _biddingProperty.Title);
+            Assert.AreEqual(Convert.ToDecimal(askingPrice), _biddingProperty.AskingPrice);
         }
 
         [Then(@"it is available for bidding")]
         public void ThenItIsAvailableForBidding()
         {
-            var biddingProperty = biddingDriver.GetBiddingPropertyAdded();
-            Assert.AreEqual(true, biddingProperty.IsBiddingActive);
+            Assert.AreEqual(true, _biddingProperty.IsBiddingActive);
         }
 
         [Then(@"The message that appears is (.*)")]
         public void ThenTheMessageAppears(string message)
         {
             string[] messages = message.Split(';');
-            ArrayList errors = biddingDriver.GetErrorMessages();
+            var errors = _propertyDriver.Errors;
             CollectionAssert.AreEqual(messages, errors);
         }
 
         [Then(@"the property is not added")]
         public void ThenThePropertyIsNotAdded()
         {
-            var biddingProperty = biddingDriver.GetBiddingPropertyAdded();
-            Assert.IsNull(biddingProperty);
+            Assert.IsNull(_biddingProperty);
         }
-
-        [OneTimeTearDown]
-        public void TearDown()
-        {
-            biddingDriver.Dispose();
-        }
-
     }
 }

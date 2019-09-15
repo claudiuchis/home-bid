@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HomeBid.Services.Bidding.Infrastructure;
 using HomeBid.Services.Bidding.Models;
 using Microsoft.EntityFrameworkCore;
@@ -24,6 +25,12 @@ namespace HomeBid.Services.Bidding.Services
             _context.BiddingProperties.Add(biddingProperty);
             await _context.SaveChangesAsync();
             return biddingProperty;
+        }
+
+        public async Task<IEnumerable<BiddingProperty>> GetBiddingProperties()
+        {
+            var properties = await _context.BiddingProperties.ToListAsync();
+            return (IEnumerable<BiddingProperty>)properties;
         }
     }
 }
