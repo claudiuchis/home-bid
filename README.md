@@ -11,4 +11,4 @@ It's a project for showcasing some of the cool concepts/technologies I used late
 
 See Docs/README.md for more information about this project.
 
-See Src/e2e/Features for feature files writen in Gerkin, some of which are alredy automated using bindings defined in Src/e2e/StepsDefinitions.
+See Src/e2e/Features for feature files writen in Gerkin, some of which are already automated using bindings defined in Src/e2e/StepsDefinitions.
