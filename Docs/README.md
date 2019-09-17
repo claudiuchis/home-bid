@@ -50,5 +50,5 @@ Features:
     As a house buyer
     I want to access the latest bid online
 
-
+The full list of features (written in Gerkin) are located in Src/e2e/Features
 
