@@ -8,3 +8,6 @@ It's a project for showcasing some of the cool concepts/technologies I used late
 2. BDD (Behaviour Driven Design) + TDD (Test Driven Design) for writing up stories using the common (ubiquitous) language, and automating the end to end tests using the acceptance criteria defined in the stories.
 
 3. C# .Net Core, Entity Framework Core, Web API's, MVC, Multithreading (Async) programming, Postgresql, Git.
+
+See Docs/README.md for more information about this project
+See Src/e2e/Features for feature files writen in Gerkin, some of which are alredy automated using bindings defined in Src/e2e/StepsDefinitions
