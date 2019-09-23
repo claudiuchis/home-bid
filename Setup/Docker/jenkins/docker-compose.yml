@@ -1,0 +1,30 @@
+version: '3.3'
+
+# declare volumes
+volumes:
+  vol_jenkins:
+
+services:
+
+  jenkins:
+    build:
+      context: .
+    container_name: jenkins
+    volumes:
+      - type: volume
+        source: vol_jenkins
+        target: /var/jenkins_home
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+    user: root # allow Jenkins to spawn docker containers to execute stages in your pipelines
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    restart: always
+
+
+  ##################################
+  # End
+  ##################################
+

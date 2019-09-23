@@ -11,7 +11,7 @@ Scenario: Edit property
     When I change the properties details
         |Title            |AskingPrice|
         |54 Alendale Close|1234567     |
-    Then the properties details are updated
+    Then the details are updated
 
 Scenario: Attempting to edit properties using invalid data
     Given I have added this property
