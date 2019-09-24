@@ -7,6 +7,7 @@ pipeline {
                     filename 'Dockerfile'
                     dir 'Src/e2e'
                     label 'homebid-e2e-test'
+                }
             }
             steps {
                 sh 'dotnet test'
