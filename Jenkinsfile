@@ -4,8 +4,8 @@ pipeline {
         stage('Test') {
             agent {
                 dockerfile {
-                    filename 'Dockerfile'
-                    dir 'Src/e2e'
+                    filename 'Dockerfile.test'
+                    // dir 'Src/e2e'
                 }
             }
             steps {
