@@ -6,7 +6,6 @@ pipeline {
                 dockerfile {
                     filename 'Dockerfile'
                     dir 'Src/e2e'
-                    label 'homebid-e2e-test'
                 }
             }
             steps {
