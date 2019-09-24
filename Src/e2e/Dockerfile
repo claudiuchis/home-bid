@@ -1,0 +1,6 @@
+FROM microsoft/dotnet:2.2-sdk AS build
+WORKDIR /src
+
+COPY . .
+WORKDIR /src/Src/e2e
+RUN dotnet restore

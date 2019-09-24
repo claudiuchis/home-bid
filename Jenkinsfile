@@ -1,11 +1,15 @@
 pipeline {
-    agent {
-        docker { image 'node:7-alpine' }
-    }
+    agent none
     stages {
         stage('Test') {
+            agent {
+                dockerfile {
+                    filename 'Dockerfile'
+                    dir 'Src/e2e'
+                    label 'homebid-e2e-test'
+            }
             steps {
-                sh 'node --version'
+                sh 'dotnet test'
             }
         }
     }
