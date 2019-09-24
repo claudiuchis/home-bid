@@ -3,4 +3,5 @@ WORKDIR /src
 
 COPY . .
 WORKDIR /src/Src/e2e
-RUN dotnet restore
+# RUN dotnet restore
+RUN ls
