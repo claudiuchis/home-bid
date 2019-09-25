@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Services\Bidding\Bidding.Service\Bidding.Service.csproj" />
+    <ProjectReference Include="..\..\src\Services\Bidding\Bidding.API\Bidding.API.csproj" />
   </ItemGroup>
 
 </Project>

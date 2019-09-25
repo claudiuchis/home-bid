@@ -1,8 +1,0 @@
-FROM microsoft/dotnet:2.2-sdk
-WORKDIR /src
-
-COPY . .
-WORKDIR /src/Src/e2e
-RUN dotnet restore
-
-ENTRYPOINT ["dotnet", "test", "--logger:trx"]

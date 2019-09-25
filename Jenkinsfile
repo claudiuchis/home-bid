@@ -1,15 +1,15 @@
 pipeline {
     agent none
     stages {
-        stage('Test') {
+        stage('Bidding.API') {
             agent {
                 dockerfile {
-                    filename 'Dockerfile.test'
+                    filename 'Bidding.Dockerfile'
                     // dir 'Src/e2e'
                 }
             }
             steps {
-                sh 'dotnet test'
+                sh 'cat /results/results.xml'
             }
         }
     }
