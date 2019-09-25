@@ -14,13 +14,13 @@ RUN dotnet test ./src/Services/Bidding/Bidding.UnitTests \
     --logger "trx;LogFileName=results.xml"
 
 # build and publish
-RUN dotnet publish src/Services/Bidding/Bidding.Service/Bidding.Service.csproj \
+RUN dotnet publish src/Services/Bidding/Bidding.API/Bidding.API.csproj \
      -c Release -o out
 
 # build runtime image
 FROM microsoft/dotnet:2.2-aspnetcore-runtime
 WORKDIR /app
 EXPOSE 80
-COPY --from=build /app/src/Services/Bidding/Bidding.Service/out .
+COPY --from=build /app/src/Services/Bidding/Bidding.API/out .
 
-ENTRYPOINT ["dotnet", "Bidding.Service.dll"]
+ENTRYPOINT ["dotnet", "Bidding.API.dll"]
