@@ -3,7 +3,7 @@ WORKDIR /app
 
 COPY HomeBid.sln ./
 COPY src ./src
-COPY tests ./tests
+COPY test ./test
 
 # restore all projects
 RUN dotnet restore HomeBid.sln
