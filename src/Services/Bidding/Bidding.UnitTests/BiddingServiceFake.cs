@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using System.Collections.Generic;
 using HomeBid.Services.Bidding.Services;
 using HomeBid.Services.Bidding.Models;
 
@@ -12,5 +13,9 @@ namespace HomeBid.Services.Bidding.UnitTests
             return Task.FromResult(property);
         }
 
+        public Task<IEnumerable<BiddingProperty>> GetBiddingProperties()
+        {
+            return null;
+        }
     }
 }
