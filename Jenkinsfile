@@ -9,7 +9,7 @@ pipeline {
                 }
             }
             steps {
-                sh 'cat /results/results.xml'
+                // sh 'cat /results/results.xml'
             }
         }
     }
