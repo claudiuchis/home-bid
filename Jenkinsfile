@@ -10,6 +10,7 @@ pipeline {
             }
             steps {
                 // sh 'cat /results/results.xml'
+                echo 'Succeeded!'
             }
         }
     }
