@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.TestHost;
 using Microsoft.Extensions.Configuration;
 using HomeBid.Services.Bidding;
+using HomeBid.Services.Bidding.Infrastructure;
 
 namespace HomeBid.Specifications.Setup
 {
@@ -27,6 +28,12 @@ namespace HomeBid.Specifications.Setup
                         .UseStartup<Startup>();
 
                     _testServer = new TestServer(hostBuilder);
+
+                    _testServer.Host
+                        .MigrateDbContext<BiddingContext>((context, services) => 
+                        {
+
+                        });
                 }
                 return _testServer;
             }

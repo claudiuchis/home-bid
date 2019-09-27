@@ -16,7 +16,7 @@ pipeline {
             agent {
                 dockerfile {
                     filename 'Integration.Dockerfile'
-                    args '--network pg_localnet'
+                    args '--network pg_localnet -e ConnectionString="Server=sql-bidder;Database=bidit;User Id=bidder;Password=l1ttlef1nger"'
                 }
             }
             steps {
