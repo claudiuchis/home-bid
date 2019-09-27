@@ -16,7 +16,7 @@ pipeline {
             agent {
                 dockerfile {
                     filename 'Integration.Dockerfile'
-                    args '--network localnet'
+                    args '--network pg_localnet'
                 }
             }
             steps {
