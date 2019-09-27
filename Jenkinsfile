@@ -47,7 +47,7 @@ pipeline {
         //     steps {
         //         echo 'Integration testing'
         //     }
-        }
+        // }
 
     }
 }
