@@ -16,6 +16,7 @@ pipeline {
             agent {
                 dockerfile {
                     filename 'Integration.Dockerfile'
+                    args '--network localnet'
                 }
             }
             steps {

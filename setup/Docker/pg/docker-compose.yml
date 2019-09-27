@@ -12,6 +12,7 @@ services:
 
   # postgresql server
   sql-bidder:
+    container_name: sql-bidder
     build:
       context: .
     image: sql-bidder
@@ -26,13 +27,13 @@ services:
       - APP_DB=bidit
     ports:
     - "5432:5432"
-    # networks:
-    #   - localnet
+    networks:
+      - localnet
     restart: always
 
-# networks:
-#   localnet:
-#     driver: bridge
+networks:
+  localnet:
+    driver: bridge
     
   ##################################
   # End
