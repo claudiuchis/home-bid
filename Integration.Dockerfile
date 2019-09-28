@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:3.0-sdk
+FROM microsoft/dotnet:2.2-sdk
 WORKDIR /app
 
 # Setup Selenium with ChromeDriver

@@ -1,7 +1,6 @@
 ﻿namespace HomeBid.Services.Bidding.Infrastructure.Filters
 {
     using Microsoft.AspNetCore.Hosting;
-    using Microsoft.Extensions.Hosting;
     using Microsoft.AspNetCore.Mvc.Filters;
     using Microsoft.Extensions.Logging;
     using System.Net;
@@ -9,10 +8,10 @@
 
     public class HttpGlobalExceptionFilter : IExceptionFilter
     {
-        private readonly IWebHostEnvironment env;
+        private readonly IHostingEnvironment env;
         private readonly ILogger<HttpGlobalExceptionFilter> logger;
 
-        public HttpGlobalExceptionFilter(IWebHostEnvironment env, ILogger<HttpGlobalExceptionFilter> logger)
+        public HttpGlobalExceptionFilter(IHostingEnvironment env, ILogger<HttpGlobalExceptionFilter> logger)
         {
             this.env = env;
             this.logger = logger;
