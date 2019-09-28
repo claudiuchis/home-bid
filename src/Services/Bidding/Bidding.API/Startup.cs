@@ -2,6 +2,7 @@
 using System.Reflection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -32,7 +33,7 @@ namespace HomeBid.Services.Bidding
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
@@ -45,7 +46,7 @@ namespace HomeBid.Services.Bidding
             }
 
             //app.UseHttpsRedirection();
-            app.UseMvc();
+            //app.UseMvc();
         }
     }
 
@@ -78,7 +79,7 @@ namespace HomeBid.Services.Bidding
             {
                 options.Filters.Add(typeof(HttpGlobalExceptionFilter));
             })
-            .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
             return services;
         }
     }

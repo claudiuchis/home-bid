@@ -1,4 +1,4 @@
-FROM microsoft/dotnet:2.2-sdk AS build
+FROM microsoft/dotnet:3.0-sdk AS build
 WORKDIR /app
 
 COPY HomeBid.sln ./
@@ -18,7 +18,7 @@ RUN dotnet publish src/Services/Bidding/Bidding.API/Bidding.API.csproj \
      -c Release -o out
 
 # build runtime image
-FROM microsoft/dotnet:2.2-aspnetcore-runtime
+FROM microsoft/dotnet:3.0-aspnetcore-runtime
 WORKDIR /app
 EXPOSE 80
 COPY --from=build /app/src/Services/Bidding/Bidding.API/out .
